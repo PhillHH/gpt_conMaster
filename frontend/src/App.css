@@ -1,0 +1,6 @@
+/* App.css */
+.App {
+    display: flex; /* Flexbox, um Sidebar und ContentBox nebeneinander anzuordnen */
+    height: 100vh; /* Gesamte Höhe des Bildschirms ausnutzen */
+    transition: margin-left 0.3s ease; /* Übergangseffekt für die ContentBox, wenn die Sidebar toggelt */
+}

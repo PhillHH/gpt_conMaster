@@ -1,0 +1,16 @@
+/* ContentBox.css */
+.content-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 27px; /* Abstand zur Sidebar im ausgeklappten Zustand */
+    transition: margin-left 0.3s ease; /* Übergangseffekt für den Margin-Wert */
+    flex-grow: 1; /* ContentBox füllt den restlichen verfügbaren Platz aus */
+    max-width: 80%;
+    min-height: 80vh;
+}
+
+.App.collapsed .content-box {
+    margin-left: 80px; /* Reduzierter Abstand, wenn die Sidebar eingeklappt ist */
+}

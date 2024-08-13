@@ -15,7 +15,7 @@
     background-color: #2e2a7266;
     color: white;
     transition: width 0.3s ease, height 0.3s ease;
-    position: fixed;
+    position: relative;
     top: 5vh; 
     left: 20px; 
     display: flex;
