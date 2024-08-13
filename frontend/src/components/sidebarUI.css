@@ -1,24 +1,36 @@
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0); /* Ausgangsposition */
+    }
+    50% {
+        transform: translateY(-10px); /* Aufwärtsbewegung */
+    }
+}
+
+
+
 .sidebar {
     width: 250px;
-    height: 90vh; /* Etwas kleiner als die volle Höhe, damit es wie ein schwebendes Panel aussieht */
+    height: 90vh; 
     background-color: #2e2a7266;
     color: white;
     transition: width 0.3s ease, height 0.3s ease;
     position: fixed;
-    top: 5vh; /* Zentriert die Sidebar vertikal */
-    left: 20px; /* Abstand von der linken Seite */
+    top: 5vh; 
+    left: 20px; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Inhalte oben ausrichten */
-    border-radius: 15px; /* Runde Ecken hinzufügen */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten für schwebenden Effekt */
-    z-index: 1000; /* Sicherstellen, dass die Sidebar über dem Inhalt liegt */
+    justify-content: flex-start; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    z-index: 1000; 
+    animation: float 3s ease-in-out infinite; /* Wendet die Animation auf die Menüleiste an */
 }
 
 .sidebar.collapsed {
     width: 80px;
-    height: 90vh; /* Höhe beibehalten, wenn die Sidebar kollabiert */
+    height: 90vh; 
 }
 
 .logo {
@@ -43,35 +55,32 @@
 }
 
 .menu-item {
-    align-items: center; /* Zentriert Icon und Text vertikal */
-    padding: 15px 20px; /* Gleichmäßiges Padding innen */
+    align-items: center; 
+    padding: 15px 20px; 
     display: flex;
     align-items: center;
     padding: 15px;
     color: white;
     text-decoration: none;
-    transition: background 0.3s ease, color 0.3s ease; /* Sanfter Übergang für Hintergrund und Textfarbe */
+    transition: background 0.3s ease, color 0.3s ease; 
 }
-
 .menu-item i {
     font-size: 24px;
     margin-right: 20px;
 }
 
 .menu-item span {
-    flex-grow: 1; /* Stellt sicher, dass der Text den verbleibenden Platz nutzt */
-    text-align: left; /* Text linksbündig ausrichten */
+    flex-grow: 1;
+    text-align: left; 
 }
 
 .menu-item:hover {
-    background-color: rgba(46, 42, 114, 0.3); /* Blauer und transparenter Hintergrund bei Hover */
-    color: #fff; /* Textfarbe ändert sich bei Hover */
-}
+    background-color: rgba(46, 42, 114, 0.3); 
+    color: #fff; }
 
 .menu-item span {
     opacity: 1;
-    transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
-}
+    transition: opacity 0.3s ease; }
 
 
 .sidebar.collapsed .menu-item span {

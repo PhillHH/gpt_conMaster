@@ -27,7 +27,7 @@ function Sidebar_UI() {
                 <li>
                     <a href="/news" className="menu-item">
                         <i className="icon-news"></i>
-                        {!isCollapsed && <span>News</span>}
+                        {!isCollapsed && <span>&nbsp;&nbsp;&nbsp;News</span>}
                     </a>
                 </li>
                 <li>
@@ -39,7 +39,7 @@ function Sidebar_UI() {
                 <li>
                     <a href="/functions" className="menu-item">
                         <i className="icon-functions"></i>
-                        {!isCollapsed && <span>Functions</span>}
+                        {!isCollapsed && <span>&nbsp;Functions</span>}
                     </a>
                 </li>
             </ul>
