@@ -43,12 +43,14 @@
 }
 
 .menu-item {
+    align-items: center; /* Zentriert Icon und Text vertikal */
+    padding: 15px 20px; /* Gleichmäßiges Padding innen */
     display: flex;
     align-items: center;
     padding: 15px;
     color: white;
     text-decoration: none;
-    transition: background 0.3s;
+    transition: background 0.3s ease, color 0.3s ease; /* Sanfter Übergang für Hintergrund und Textfarbe */
 }
 
 .menu-item i {
@@ -56,14 +58,21 @@
     margin-right: 20px;
 }
 
+.menu-item span {
+    flex-grow: 1; /* Stellt sicher, dass der Text den verbleibenden Platz nutzt */
+    text-align: left; /* Text linksbündig ausrichten */
+}
+
 .menu-item:hover {
-    background-color: #3a3689;
+    background-color: rgba(46, 42, 114, 0.3); /* Blauer und transparenter Hintergrund bei Hover */
+    color: #fff; /* Textfarbe ändert sich bei Hover */
 }
 
 .menu-item span {
     opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
 }
+
 
 .sidebar.collapsed .menu-item span {
     opacity: 0;

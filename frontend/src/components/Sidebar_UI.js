@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './sidebarUI.css';
 
-import logo from '../assets/logo_full.png';
-
+// Importiere die beiden Logos
+import fullLogo from '../assets/logo_full.png'; // Vollständiges Logo
+import iconLogo from '../assets/logo_icon.png'; // Nur das Icon
 
 function Sidebar_UI() {
-    const [isCollapsed, setIsCollapsed] = useState(true);
+    const [isCollapsed, setIsCollapsed] = useState(false); // Standardmäßig auf "false" gesetzt
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
@@ -14,7 +15,7 @@ function Sidebar_UI() {
     return (
         <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
             <div className="logo">
-                <img src={logo} alt="Logo" />
+                <img src={isCollapsed ? iconLogo : fullLogo} alt="Logo" />
             </div>
             <ul className="menu">
                 <li>
