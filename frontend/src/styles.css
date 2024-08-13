@@ -38,6 +38,19 @@
   } 
 
   */
+
+  body {
+    background-color: #f0f0f0; /* Setze hier die gewünschte Farbe ein */
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+
+
+
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
   
   .overview, .chat {
     margin-left: 260px; /* Platz für die Sidebar */
