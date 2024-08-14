@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Sidebar_UI from './components/Sidebar_UI'; // Importiere die Sidebar-Komponente
-import ContentBox from './components/ContentBox'; // Importiere die ContentBox-Komponente
-import './App.css'; // Importiere die globale CSS-Datei
+import Sidebar_UI from './components/Sidebar_UI';
+import ContentBox from './components/ContentBox';
+import './App.css';
 
 function App() {
     const [isCollapsed, setIsCollapsed] = useState(false);

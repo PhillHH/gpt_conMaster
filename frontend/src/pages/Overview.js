@@ -1,5 +1,6 @@
 import React from 'react';
-import ContentBox from '../components/ContentBox'; // Stellen Sie sicher, dass der Import korrekt ist
+import rocketImage from '../assets/rocket.png';
+import ContentBox from '../components/ContentBox';
 
 function Overview() {
   return (
@@ -7,7 +8,9 @@ function Overview() {
       <div className="overview">
         <h1>Overview</h1>
         <p>This will be a huge project soon. Make things happen with Growento.com:</p>
-        {/* Hier kannst du eine Liste der letzten Aktivitäten hinzufügen */}
+        <img src={rocketImage} alt="Rocket" className="rocket" />
+
+        {/* letzten Aktivitäte  */}
       </div>
     </ContentBox>
   );

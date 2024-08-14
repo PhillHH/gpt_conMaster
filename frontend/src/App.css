@@ -1,6 +1,12 @@
-/* App.css */
 .App {
-    display: flex; /* Flexbox, um Sidebar und ContentBox nebeneinander anzuordnen */
-    height: 100vh; /* Gesamte Höhe des Bildschirms ausnutzen */
-    transition: margin-left 0.3s ease; /* Übergangseffekt für die ContentBox, wenn die Sidebar toggelt */
+    display: flex; 
+    justify-content: center;
+    height: 100vh; 
+    align-items: stretch; 
+    
+}
+
+.App.collapsed .content-box {
+    margin-left: 80px; 
+    max-width: calc(100% - 80px); 
 }

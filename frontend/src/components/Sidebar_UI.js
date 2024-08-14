@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './sidebarUI.css';
 
-// Importiere die beiden Logos
-import fullLogo from '../assets/logo_full.png'; // Vollständiges Logo
-import iconLogo from '../assets/logo_icon.png'; // Nur das Icon
+import fullLogo from '../assets/logo_full.png';
+import iconLogo from '../assets/logo_icon.png';
 
 function Sidebar_UI() {
-    const [isCollapsed, setIsCollapsed] = useState(false); // Standardmäßig auf "false" gesetzt
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
@@ -27,7 +26,7 @@ function Sidebar_UI() {
                 <li>
                     <a href="/news" className="menu-item">
                         <i className="icon-news"></i>
-                        {!isCollapsed && <span>&nbsp;&nbsp;&nbsp;News</span>}
+                        {!isCollapsed && <span>News</span>}
                     </a>
                 </li>
                 <li>
@@ -39,7 +38,7 @@ function Sidebar_UI() {
                 <li>
                     <a href="/functions" className="menu-item">
                         <i className="icon-functions"></i>
-                        {!isCollapsed && <span>&nbsp;Functions</span>}
+                        {!isCollapsed && <span>Functions</span>}
                     </a>
                 </li>
             </ul>
