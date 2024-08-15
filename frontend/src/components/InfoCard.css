@@ -1,0 +1,50 @@
+.info-card {
+    background-color: #fff; /* Weißer Hintergrund */
+    border-radius: 12px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Schatten */
+    padding: 20px; /* Innenabstand */
+    display: flex; /* Flexbox für Layout */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    transition: transform 0.2s ease; /* Übergangseffekt bei Hover */
+    margin-bottom: 20px; /* Abstand zwischen den Karten */
+}
+
+.info-card:hover {
+    transform: translateY(-5px); /* Leichtes Anheben bei Hover */
+}
+
+.card-image {
+    width: 60px; /* Breite des Bildes */
+    height: 60px; /* Höhe des Bildes */
+    margin-right: 20px; /* Abstand zwischen Bild und Text */
+    border-radius: 8px; /* Leicht abgerundete Ecken */
+    object-fit: cover; /* Bild wird proportional skaliert und zugeschnitten */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column; /* Inhalt wird vertikal angeordnet */
+}
+
+.card-title {
+    font-size: 1.2em; /* Schriftgröße des Titels */
+    margin-bottom: 10px; /* Abstand unter dem Titel */
+    font-weight: 600; /* Fettschrift */
+}
+
+.card-text {
+    font-size: 1em; /* Schriftgröße des Textes */
+    color: #555; /* Farbe des Textes */
+    margin-bottom: 10px; /* Abstand unter dem Text */
+}
+
+.card-link {
+    color: #00b894; /* Farbe des Links */
+    font-weight: 600; /* Fettschrift für den Link */
+    text-decoration: none; /* Kein Unterstreichen */
+    margin-top: auto; /* Nimmt den verbleibenden Platz ein, um den Link nach unten zu schieben */
+}
+
+.card-link:hover {
+    text-decoration: underline; /* Unterstreichen bei Hover */
+}
