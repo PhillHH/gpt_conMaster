@@ -1,50 +1,61 @@
 .info-card {
-    background-color: #fff; /* Weißer Hintergrund */
-    border-radius: 12px; /* Abgerundete Ecken */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Schatten */
-    padding: 20px; /* Innenabstand */
-    display: flex; /* Flexbox für Layout */
-    align-items: center; /* Zentriert den Inhalt vertikal */
-    transition: transform 0.2s ease; /* Übergangseffekt bei Hover */
-    margin-bottom: 20px; /* Abstand zwischen den Karten */
+
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+    display: flex; 
+    align-items: center; 
+    transition: transform 0.2s ease; 
+    margin-bottom: 20px; 
+    max-width: 48%;
+    flex-wrap: nowrap;
 }
 
 .info-card:hover {
-    transform: translateY(-5px); /* Leichtes Anheben bei Hover */
+    transform: translateY(-5px); 
 }
 
 .card-image {
-    width: 60px; /* Breite des Bildes */
-    height: 60px; /* Höhe des Bildes */
-    margin-right: 20px; /* Abstand zwischen Bild und Text */
-    border-radius: 8px; /* Leicht abgerundete Ecken */
-    object-fit: cover; /* Bild wird proportional skaliert und zugeschnitten */
+    width: 60px; 
+    height: 60px; 
+    margin-right: 20px; 
+    border-radius: 8px; 
+    object-fit: cover; 
 }
 
 .card-content {
     display: flex;
-    flex-direction: column; /* Inhalt wird vertikal angeordnet */
+    flex-direction: column; 
 }
 
 .card-title {
-    font-size: 1.2em; /* Schriftgröße des Titels */
-    margin-bottom: 10px; /* Abstand unter dem Titel */
-    font-weight: 600; /* Fettschrift */
+    font-size: 1.5em; 
+    margin-bottom: 10px; 
+    font-weight: 600; 
+    color: #b39ddb; 
 }
 
 .card-text {
-    font-size: 1em; /* Schriftgröße des Textes */
-    color: #555; /* Farbe des Textes */
-    margin-bottom: 10px; /* Abstand unter dem Text */
+    font-size: 1em; 
+    color: #000; 
+    margin-bottom: 10px; 
 }
 
 .card-link {
-    color: #00b894; /* Farbe des Links */
-    font-weight: 600; /* Fettschrift für den Link */
-    text-decoration: none; /* Kein Unterstreichen */
-    margin-top: auto; /* Nimmt den verbleibenden Platz ein, um den Link nach unten zu schieben */
+    color: #b39ddb; 
+    font-weight: 600; 
+    text-decoration: none; 
+    margin-top: auto; 
 }
 
 .card-link:hover {
-    text-decoration: underline; /* Unterstreichen bei Hover */
+    text-decoration: underline; 
+}
+
+.info-cards-container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 0px; 
+    flex-wrap: nowrap; 
+
 }

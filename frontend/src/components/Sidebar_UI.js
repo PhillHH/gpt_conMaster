@@ -18,7 +18,7 @@ function Sidebar_UI() {
             </div>
             <ul className="menu">
                 <li>
-                    <a href="/overview" className="menu-item">
+                    <a href="overview" className="menu-item">
                         <i className="icon-overview"></i>
                         {!isCollapsed && <span>Overview</span>}
                     </a>

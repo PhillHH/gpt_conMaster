@@ -1,6 +1,6 @@
 .content-box {
     background-color: #ebebeb; ;
-    padding: 10px;
+    padding: 10px 30px;
     height: (90vh); 
     margin-top: 5vh; 
     margin-bottom: 5vh;
@@ -12,23 +12,90 @@
     max-width: 1200px; 
     transition: margin-left 0.3s ease;
     font-family: 'Inter', sans-serif;
+    background-image: url('../assets/rocket.png');
+    background-position: bottom right;
+    background-size: 350px; 
+    background-repeat: no-repeat;
+    overflow-y: scroll; /*  vertikales Scrollen */
+    scrollbar-width: auto; /*  Scrollbar für Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Farbe der Scrollbar für Firefox */}
+
+    /* Scrollbar für Webkit-basierte Browser (Chrome, Safari) */
+.content-box::-webkit-scrollbar {
+    width: 16px;
 }
 
+.content-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.content-box::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+.content-box::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 .content-box h1 {
     color: #b39ddb; 
     opacity: 0.9; 
     font-size: 4.5em; 
-    margin-bottom: 80px; 
+    margin-bottom: 40px; 
     margin-top: 15px;
     margin-left: 15px;
 }
 
 
-.rocket {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    width: 100px;
-    height: auto;
-    z-index: 100;
+.content-box::-webkit-scrollbar {
+    width: 106px; 
+    height: 16px; 
 }
+
+
+.content-box::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+
+.content-box::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+
+.content-box::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+.rocket-container {
+    display: flex;
+    justify-content: center; 
+    margin: 20px 0; 
+}
+.rocket {
+    width: 60px; 
+    height: auto; 
+    transition: transform 0.2s ease;
+}
+
+
+.announcement-title {
+    font-size: 2em; 
+    color: #4a4a4a; 
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+.announcement-text {
+    font-size: 1.2em; 
+    color: #555555; 
+    line-height: 1.6; 
+    margin-bottom: 15px;
+}
+
+.announcement-text:last-child {
+    margin-bottom: 0; }
