@@ -10,11 +10,11 @@ html {
 	background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
 }
 
-h1 {
+h1{
 	font-size: 24px;
 	margin: 10px 0 0 0;
 	font-weight: lighter;
-	text-transform: uppercase;
+	text-transform: none;
 	color: #eeeeee;
 }
 
@@ -99,4 +99,17 @@ span a:hover {
 .support-me img {
 	width: 100%;
 	height: auto;
+}
+
+.floating-staff-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Abstand zwischen den Elementen */
+}
+
+.horizontal-layout {
+    display: flex;
+    justify-content: center; /* Zentriert die Boxen horizontal */
+    gap: 20px; /* Abstand zwischen den Boxen */
 }

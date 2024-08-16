@@ -3,8 +3,8 @@ import Sidebar_UI from './components/Sidebar_UI';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ContentBox from './components/ContentBox';
 import Overview from './pages/Overview';
-import floatingStaff from './components/floatingStaff';
-
+import FloatingStaff from './components/FloatingStaff';
+import FloatingStaff_02 from './components/FloatingStaff_02';
 import './App.css';
 
 function App() {
@@ -28,9 +28,12 @@ function App() {
                     <Route path="/" element={
                         <ContentBox>
                             <h1>Home</h1>
-                            <p>This is the Homepage</p>
-                            <div>
-                      <floatingStaff />
+                            <h2>The Current Team: 
+                                
+                                Lets do something big! </h2>
+                            <div className='.floating-staff-container'>
+                      <FloatingStaff />
+                      
                              </div>
                         </ContentBox>
                     } />

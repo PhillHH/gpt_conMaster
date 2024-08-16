@@ -92,3 +92,9 @@ body::before {
     margin-left: 10px;
   }
   
+  .floating-staff-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Abstand zwischen den Elementen */
+}
