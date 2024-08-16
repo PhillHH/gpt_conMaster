@@ -3,8 +3,7 @@ import Sidebar_UI from './components/Sidebar_UI';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ContentBox from './components/ContentBox';
 import Overview from './pages/Overview';
-import FloatingStaff from './components/FloatingStaff';
-import FloatingStaff_02 from './components/FloatingStaff_02';
+import FloatingStaff from './components/FloatingStaff'
 import './App.css';
 
 function App() {
