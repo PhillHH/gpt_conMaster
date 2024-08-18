@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+
+# Virtual Environment
+venv/
+
+# VS Code
+.vscode/
+
+# Docker
+*.log
+*.pid
+*.seed
+*.pid
+*.env
+.DS_Store
