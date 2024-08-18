@@ -1,5 +1,7 @@
 # routes/chat_routes.py
 from flask import Blueprint, request, jsonify
+from models.db_init import db
+from models.models import Chat
 
 chat_bp = Blueprint('chat_bp', __name__)
 
