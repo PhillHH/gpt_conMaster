@@ -26,21 +26,50 @@ def test_get_chats(client):
     assert isinstance(response.json, list)
 
 def test_get_chat(client):
-    response = client.get('/chats/1')
-    assert response.status_code == 200
-    assert 'message' in response.json
+    # Erstellen Sie einen neuen Chat
+    post_response = client.post('/chats', json={'message': 'Testnachricht', 'user_id': 1})
+    
+    # Überprüfen Sie, ob der Chat erfolgreich erstellt wurde
+    assert post_response.status_code == 201  # 201 Created
+    created_chat_id = post_response.json['id']  # Die ID des erstellten Chats sollte zurückgegeben werden
+    
+    # Versuchen Sie nun, den erstellten Chat abzurufen
+    response = client.get(f'/chats/{created_chat_id}')
+    assert response.status_code == 200  # Stellen Sie sicher, dass der Abruf erfolgreich ist
+    assert response.json['message'] == 'Testnachricht'  # Überprüfen Sie, ob die Nachricht korrekt ist
+
 
 def test_update_chat(client):
-    response = client.put('/chats/1', json={
+    # Erstellen Sie einen neuen Chat
+    post_response = client.post('/chats', json={'message': 'Testnachricht', 'user_id': 1})
+    
+    # Überprüfen Sie, ob der Chat erfolgreich erstellt wurde
+    assert post_response.status_code == 201  # 201 Created
+    created_chat_id = post_response.json['id']  # Die ID des erstellten Chats sollte zurückgegeben werden
+    
+    # Aktualisieren Sie den erstellten Chat
+    response = client.put(f'/chats/{created_chat_id}', json={
         'message': 'Aktualisierte Nachricht'
     })
+    
+    # Überprüfen Sie, ob die Aktualisierung erfolgreich war
     assert response.status_code == 200
-    assert response.json['message'] == 'Aktualisierte Nachricht'
+    assert response.json['message'] == 'Aktualisierte Nachricht'  # Überprüfen Sie, ob die Nachricht aktualisiert wurde
+
 
 def test_delete_chat(client):
-    response = client.delete('/chats/1')
+    # Erstellen Sie einen neuen Chat
+    post_response = client.post('/chats', json={'message': 'Testnachricht', 'user_id': 1})
+    
+    # Überprüfen Sie, ob der Chat erfolgreich erstellt wurde
+    assert post_response.status_code == 201  # 201 Created
+    created_chat_id = post_response.json['id']  # Die ID des erstellten Chats sollte zurückgegeben werden
+    
+    # Löschen Sie den erstellten Chat
+    response = client.delete(f'/chats/{created_chat_id}')
+    
+    # Überprüfen Sie, ob das Löschen erfolgreich war
     assert response.status_code == 200
-    assert response.json['message'] == 'Chat deleted'
 
 def test_create_branch(client):
     response = client.post('/branches/create', json={

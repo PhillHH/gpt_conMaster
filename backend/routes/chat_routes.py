@@ -1,57 +1,76 @@
 from flask import Blueprint, request, jsonify
 from models.db_init import db
-from models.models import Chat
-from models.branch import Branch
+from models.models import Chat, Branch  # Importiere das Branch-Modell aus models
 from utils.openai_helper import query_openai_api  # Import der OpenAI-Hilfsfunktion
 import os
 
 chat_bp = Blueprint('chat_bp', __name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-chats = []
-branches = [] 
 
 @chat_bp.route('/chats', methods=['POST'])
 def create_chat():
     data = request.json
-    chat_id = len(chats) + 1
-    chat = {"id": chat_id, "message": data.get('message')}
-    chats.append(chat)
-    return jsonify(chat), 201
+    new_chat = Chat(user_id=data.get('user_id', 1), message=data.get('message'))
+    db.session.add(new_chat)
+    db.session.commit()
+    return jsonify({
+        "id": new_chat.id,
+        "user_id": new_chat.user_id,
+        "message": new_chat.message,
+        "created_at": new_chat.created_at
+    }), 201
 
 @chat_bp.route('/chats', methods=['GET'])
 def get_chats():
-    return jsonify(chats), 200
+    chats = Chat.query.all()
+    return jsonify([{
+        "id": chat.id,
+        "user_id": chat.user_id,
+        "message": chat.message,
+        "created_at": chat.created_at
+    } for chat in chats]), 200
 
 @chat_bp.route('/chats/<int:chat_id>', methods=['GET'])
 def get_chat(chat_id):
-    chat = next((chat for chat in chats if chat['id'] == chat_id), None)
+    chat = db.session.get(Chat, chat_id)
     if chat:
-        return jsonify(chat), 200
+        return jsonify({
+            "id": chat.id,
+            "user_id": chat.user_id,
+            "message": chat.message,
+            "created_at": chat.created_at
+        }), 200
     return jsonify({"error": "Chat not found"}), 404
 
 @chat_bp.route('/chats/<int:chat_id>', methods=['PUT'])
 def update_chat(chat_id):
-    chat = next((chat for chat in chats if chat['id'] == chat_id), None)
+    chat = db.session.get(Chat, chat_id)
     if chat:
         data = request.json
-        chat['message'] = data.get('message')
-        return jsonify(chat), 200
+        chat.message = data.get('message')
+        db.session.commit()
+        return jsonify({
+            "id": chat.id,
+            "user_id": chat.user_id,
+            "message": chat.message,
+            "created_at": chat.created_at
+        }), 200
     return jsonify({"error": "Chat not found"}), 404
 
 @chat_bp.route('/chats/<int:chat_id>', methods=['DELETE'])
 def delete_chat(chat_id):
-    global chats
-    chats = [chat for chat in chats if chat['id'] != chat_id]
-    return jsonify({"message": "Chat deleted"}), 200
+    chat = db.session.get(Chat, chat_id)
+    if chat:
+        db.session.delete(chat)
+        db.session.commit()
+        return jsonify({"message": "Chat deleted"}), 200
+    return jsonify({"error": "Chat not found"}), 404
 
 @chat_bp.route('/branches/create', methods=['POST'])
 def create_branch():
     data = request.json
-    parent_id = data.get('parent_id')
     chat_id = data.get('chat_id')
     message = data.get('message')
-    
+
     # Verwenden der ausgelagerten OpenAI-Funktion
     reply = query_openai_api([
         {"role": "system", "content": "You are a helpful assistant."},
@@ -59,27 +78,27 @@ def create_branch():
     ])
     
     # Create new branch
-    branch_id = len(branches) + 1  # Einfache in-memory ID
-    new_branch = Branch(branch_id=branch_id, chat_id=chat_id, parent_id=parent_id, content=reply)
-    branches.append(new_branch)
-    
+    new_branch = Branch(chat_id=chat_id, branch_content=reply)
+    db.session.add(new_branch)
+    db.session.commit()
+
     return jsonify({
-        "branch_id": new_branch.branch_id,
+        "id": new_branch.id,
+        "branch_id": new_branch.id,  # Hier korrigiert: branch_id sollte new_branch.id sein
         "chat_id": new_branch.chat_id,
-        "parent_id": new_branch.parent_id,
-        "content": new_branch.content,
+        "branch_content": new_branch.branch_content,
         "created_at": new_branch.created_at
     }), 201
 
+
 @chat_bp.route('/branches/<int:branch_id>', methods=['GET'])
 def get_branch(branch_id):
-    branch = next((b for b in branches if b.branch_id == branch_id), None)
+    branch = db.session.get(Branch, branch_id)
     if branch:
         return jsonify({
-            "branch_id": branch.branch_id,
+            "branch_id": branch.id,  # Hier muss branch.id stehen, um den richtigen Wert zurückzugeben
             "chat_id": branch.chat_id,
-            "parent_id": branch.parent_id,
-            "content": branch.content,
+            "branch_content": branch.branch_content,
             "created_at": branch.created_at
         }), 200
     return jsonify({"error": "Branch not found"}), 404
