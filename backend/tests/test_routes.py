@@ -1,10 +1,11 @@
 import sys
 import os
+import openai
 import pytest
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from app import app
-
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @pytest.fixture
 def client():
@@ -40,3 +41,17 @@ def test_delete_chat(client):
     response = client.delete('/chats/1')
     assert response.status_code == 200
     assert response.json['message'] == 'Chat deleted'
+
+def test_create_branch(client):
+    response = client.post('/branches/create', json={
+        'chat_id': 1,
+        'message': 'Start a new branch'
+    })
+    assert response.status_code == 201
+    assert 'branch_id' in response.json
+
+def test_get_branch(client):
+    response = client.get('/branches/1')
+    assert response.status_code == 200
+    assert 'branch_id' in response.json
+
