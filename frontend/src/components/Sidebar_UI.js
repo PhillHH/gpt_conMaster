@@ -30,7 +30,7 @@ function Sidebar_UI() {
                     </a>
                 </li>
                 <li>
-                    <a href="/conversations" className="menu-item">
+                    <a href="/chats" className="menu-item">
                         <i className="icon-conversations"></i>
                         {!isCollapsed && <span>Conversations</span>}
                     </a>

@@ -5,11 +5,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import config
 from dotenv import load_dotenv
+from flask_cors import CORS
+
 import os
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 app.register_blueprint(chat_bp)
 env = os.getenv('FLASK_ENV', 'default')
 app.config.from_object(config[env])

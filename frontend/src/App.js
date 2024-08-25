@@ -3,6 +3,7 @@ import Sidebar_UI from './components/Sidebar_UI';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ContentBox from './components/ContentBox';
 import Overview from './pages/Overview';
+import ChatPage from './pages/ChatPage';
 import FloatingStaff from './components/FloatingStaff'
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
                 <Sidebar_UI isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
                 <Routes>
                     <Route path="/overview" element={<Overview />} />
+                    <Route path="/chats" element={<ChatPage />} />
                     {/* Weitere Routen können hier hinzugefügt werden */}
                 </Routes>
                 {/* Hier wird die ContentBox für die Startseite hinzugefügt */}

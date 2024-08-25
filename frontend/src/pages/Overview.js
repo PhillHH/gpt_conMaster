@@ -2,12 +2,14 @@ import React from 'react';
 
 import ContentBox from '../components/ContentBox';
 import InfoCard from '../components/InfoCard';
+import ChatList from '../components/chatList';
 
 function Overview() {
   return (
     <ContentBox>
       <div className="boxcontent">
         <h1>Overview</h1>
+        <ChatList />
 
         <div className="info-cards-container">
           <InfoCard

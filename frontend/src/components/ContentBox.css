@@ -23,16 +23,20 @@
     /* Scrollbar für Webkit-basierte Browser (Chrome, Safari) */
 .content-box::-webkit-scrollbar {
     width: 16px;
+    z-index: 1010;
 }
 
 .content-box::-webkit-scrollbar-track {
     background: #f1f1f1;
+    z-index: 1010;
+    
 }
 
 .content-box::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 10px;
     border: 3px solid #f1f1f1;
+    z-index: 1010;
 }
 
 .content-box::-webkit-scrollbar-thumb:hover {
